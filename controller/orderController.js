@@ -47,3 +47,14 @@ exports.getYourOrders = async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };
+
+// New function to get the count of orders for the current user
+exports.getOrderCount = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const orderCount = await orderModel.countDocuments({ user: userId });
+        res.status(200).json({ success: true, orderCount });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    } 
+};

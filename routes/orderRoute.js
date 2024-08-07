@@ -23,5 +23,6 @@ routes.post('/createOrder', requireLogin, controller.createOrder);
 routes.get('/getOrders', requireLogin, controller.getOrders);
 routes.get('/yourOrder', requireLogin, controller.getYourOrders);
 routes.put('/updateOrderStatus', requireLogin, controller.updateOrderStatus);
+routes.get('/order-count',requireLogin, controller.getOrderCount); 
 
 module.exports = routes;
